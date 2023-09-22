@@ -3,19 +3,21 @@ package org.dsag.recursion;
 public class BinarySearch {
 
     public static int search(int[] data, int val, int left, int right) {
-        int middle = (left + right) / 2;
+        if (right >= left && left <= data.length - 1) {
+            int mid = left + (right - left) / 2;
 
-        if (left == right) {
-            return -1;
-        } else if (data[middle] == val) {
-            return middle;
-        } else {
-            if (val > data[middle]) {
-                return search(data, middle + 1, right, val);
-            } else {
-                return search(data, left, middle - 1, val);
+            if (data[mid] == val) {
+                return mid;
             }
+
+            if (data[mid] > val) {
+                return search(data, left, mid - 1, val);
+            }
+
+            return search(data, mid + 1, right, val);
         }
+
+        return -1;
     }
 
     public static void main(String[] args) {
