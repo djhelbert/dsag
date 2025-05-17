@@ -2,7 +2,10 @@ package org.dsag.recursion;
 
 public class ReverseString {
     public static String reverse(String value) {
-        if(value.length() == 0) {
+        if(value == null) {
+            return null;
+        }
+        else if(value.isEmpty()) {
             return "";
         } else if(value.length() == 1) {
             return value;
@@ -12,6 +15,6 @@ public class ReverseString {
     }
 
     public static void main(String[] args) {
-        System.out.println(ReverseString.reverse("abcde"));
+        System.out.println(ReverseString.reverse("pretty"));
     }
 }
