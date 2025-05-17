@@ -35,9 +35,9 @@ public class SlidingWindow {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1, 4, 2, 10, 2, 3, 1, 0, 20};
+        int[] array = {1, 4, 2, 10, 2, 3, 1, 0, 20};
         int k = 4;
 
-        System.out.println(maxSum(arr, k)); // 24
+        System.out.println(maxSum(array, k)); // 24
     }
 }

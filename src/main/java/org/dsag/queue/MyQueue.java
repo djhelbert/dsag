@@ -3,31 +3,31 @@ package org.dsag.queue;
 /**
  * Queue implemented with a double link list.
  */
-public class MyQueue {
-    Link head;
-    Link tail;
+public class MyQueue<T extends Number> {
+    GenLink<T> head;
+    GenLink<T> tail;
 
     public boolean isEmpty() {
         return head == null;
     }
 
-    public void offer(Object o) {
+    public void offer(T o) {
         if(head == null) {
-            Link temp = new Link(o);
+            GenLink<T> temp = new GenLink<>(o);
             head = temp;
             tail = temp;
         } else {
-            Link temp = new Link(o, null, tail);
+            GenLink<T> temp = new GenLink<>(o, null, tail);
             tail.next = temp;
             tail = temp;
         }
     }
 
-    public Object poll() {
+    public T poll() {
         if(head == null) {
             return null;
         } else {
-            Object temp = head.value;
+            T temp = head.value;
             head = head.next;
 
             if(head == null) {
@@ -38,34 +38,37 @@ public class MyQueue {
         }
     }
 
-    public Object peek() {
+    public T peek() {
         return head == null ? null : head.value;
     }
 
     public void print() {
         if(head != null) {
-            Link temp = head;
+            GenLink<T> temp = head;
             System.out.print("Queue");
+
             while(temp != null) {
                 System.out.print(" -> " + temp);
                 temp = temp.next;
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        MyQueue mq = new MyQueue();
-        mq.offer("1");
-        mq.offer("2");
+        MyQueue<Integer> mq = new MyQueue<>();
+        mq.offer(1);
+        mq.offer(2);
         mq.print();
         System.out.println(mq.peek());
-        mq.offer("3");
+        mq.offer(3);
         System.out.println(mq.peek());
         mq.poll();
         mq.poll();
         System.out.println(mq.peek());
-        mq.offer("4");
+        mq.offer(4);
+        mq.print();
+        mq.offer(5);
         mq.print();
     }
 }

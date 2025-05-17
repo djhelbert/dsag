@@ -3,16 +3,16 @@ package org.dsag.queue;
 /**
  * Double Link List
  */
-public class Link {
-    public Object value;
-    public Link next;
-    public Link previous;
+public class GenLink<T extends Number> {
+    public T value;
+    public GenLink<T> next;
+    public GenLink<T> previous;
 
-    public Link(Object value) {
+    public GenLink(T value) {
         this.value = value;
     }
 
-    public Link(Object value, Link next, Link previous) {
+    public GenLink(T value, GenLink<T> next, GenLink<T> previous) {
         this.value = value;
         this.next = next;
         this.previous = previous;

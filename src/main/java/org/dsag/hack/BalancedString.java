@@ -36,8 +36,10 @@ public class BalancedString {
     }
 
     public static void main(String[] args) {
+        System.out.println(BalancedString.isBalanced("()"));       // true
         System.out.println(BalancedString.isBalanced("()[]()"));   // true
         System.out.println(BalancedString.isBalanced("(()[]())")); // true
         System.out.println(BalancedString.isBalanced("((("));      // false
+        System.out.println(BalancedString.isBalanced("((())"));    // false
     }
 }
