@@ -13,14 +13,14 @@ public class QSort {
             return;
         }
 
-        int pivotIndex = new Random().nextInt(high - low) + low;
-        int pivotValue = array[pivotIndex];
-        swap(array, pivotIndex, high);
+        int randIndex = new Random().nextInt(high - low) + low;
+        int pivotValue = array[randIndex];
+        swap(array, randIndex, high);
 
-        int leftPointer = partition(array, low, high, pivotValue);
+        int partIndex = partition(array, low, high, pivotValue);
 
-        quicksort(array, low, leftPointer - 1);
-        quicksort(array, leftPointer + 1, high);
+        quicksort(array, low, partIndex - 1);
+        quicksort(array, partIndex + 1, high);
 
     }
 

@@ -7,23 +7,21 @@ import java.util.Arrays;
  */
 public class InsertionSort {
     public static void sort(int[] data) {
-        int size = data.length;
-
-        for(int i=1; i<size; i++) {
+        for(int i=1; i<data.length; i++) {
             int j = i;
-            int temp = data[i];
+            int current = data[i];
 
-            while(j > 0 && data[j-1] > temp) {
+            while(j > 0 && data[j-1] > current) {
                 data[j] = data[j-1];
                 j--;
             }
 
-            data[j] = temp;
+            data[j] = current;
         }
     }
 
     public static void main(String[] args ) {
-        int[] data = new int[] {1, 3, 7, 8, 3, 5, 8, 9, 2};
+        int[] data = new int[] {1, 3, 7, 8, 3, 5, 8, 9, 2, 0, 6};
         InsertionSort.sort(data);
         System.out.println(Arrays.toString(data));
     }
